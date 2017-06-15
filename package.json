@@ -9,12 +9,12 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/MarcosRissottoB/app-api-rest-men/projects/2"
+    "url": "https://github.com/MarcosRissottoB/API-REST-MEAN2"
   },
   "keywords": [
     "Pauli2017"
   ],
-  "author": "Marcos Rissotto",
+  "author": "Marcos Rissotto, https://www.linkedin.com/in/marcos-ivan-rissotto-britos-b64ba354",
   "license": "MIT",
   "dependencies": {
     "bcrypt-nodejs": "0.0.3",

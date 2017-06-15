@@ -140,10 +140,6 @@ function uploadImage(req, res){
         var file_split = file_path.split('/');
         var file_name = file_split[2];
 
-        console.log('file path', file_path);
-        console.log("file_split", file_split);
-        console.log("file_name",file_name);
-
         var ext_split = file_name.split('\.');
         var file_ext = ext_split[1];
 
@@ -166,15 +162,13 @@ function uploadImage(req, res){
 function getImageFile(req, res){
     var imageFile = req.params.imageFile;
     var path_file = './uploads/artists/' + imageFile;
-          console.log('bbbbbb');
     fs.exists(path_file, function(exists) {
         if(exists){
 
             res.sendFile(path.resolve(path_file));
-          console.log('ccccccccc');
         }else{
             res.status(200).send({message: 'No existe la imagen...'})
-                  console.log('aaaaaaaaa');
+
         }
     });
 };

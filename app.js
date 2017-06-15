@@ -8,6 +8,7 @@ var app = express();
 var user_routes = require('./routes/user');
 var artist_routes = require('./routes/artist');
 var album_routes = require('./routes/album');
+var song_routes = require('./routes/song');
 
 //Middlewares.
 //app.use(bodyParser.urlencoded({ extended: true }));
@@ -15,11 +16,20 @@ app.use(bodyParser.urlencoded({extended:false}));
 app.use(bodyParser.json());
 
 //Config headers http.
+app.use((req,res, next) => {
+    res.header('Acess-Control-Allow-Origin', '*');
+    res.header('Acess-Control-Allow-Origin', 'Authorization, X-API-KEY, Origin, X-Requested-With. Content-Type, Access-Control-Allow-Method');
+    res.header('Access-Control-Allow-Method', 'GET, POST, OPTIONS, PUT, DELETE');
+    res.header('Allow', 'GET, POST, OPTIONS, PUT, DELETE');
+
+    next();
+});
 
 //Rutas basicas.
 app.use('/api', user_routes);
 app.use('/api', artist_routes);
 app.use('/api', album_routes);
+app.use('/api', song_routes);
 
 
 module.exports = app;

@@ -116,10 +116,6 @@ function uploadImage(req, res){
         var file_split = file_path.split('/');
         var file_name = file_split[2];
 
-        console.log('file path', file_path);
-        console.log("file_split", file_split);
-        console.log("file_name",file_name);
-
         var ext_split = file_name.split('\.');
         var file_ext = ext_split[1];
 
@@ -128,7 +124,7 @@ function uploadImage(req, res){
               if(!userUpdated){
                   res.status(404).send({message: 'No se ha podido actualizar el usuario.'});
               }else{
-                  res.status(200).send({user: userUpdated});
+                  res.status(200).send({image: file_name, user: userUpdated});
               }
             });
         }else{
